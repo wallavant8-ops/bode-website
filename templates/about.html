@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+
+<!-- ====== BANNER ====== -->
+<section class="banner">
+  <div class="banner-text">
+    <h1>{{ data.banner["title_" + lang] }}</h1>
+    <p>{{ data.banner["subtitle_" + lang] }}</p>
+  </div>
+</section>
+
+<!-- ====== BREADCRUMB ====== -->
+<div class="breadcrumb">
+  <div class="wrap"><a href="/?lang={{ lang }}">{% if lang == 'es' %}Inicio{% else %}Home{% endif %}</a> / {{ data.about["title_" + lang] }}</div>
+</div>
+
+<!-- ====== ABOUT INTRO ====== -->
+<section class="section">
+  <div class="wrap">
+    <div class="about-intro">
+      <div class="img-box">
+        <div class="placeholder">📦</div>
+      </div>
+      <div class="content">
+        <h3>{{ data.about["tagline_" + lang] }}</h3>
+        <p>{{ data.about["content_" + lang] }}</p>
+        <p>{{ data.about["content2_" + lang] }}</p>
+        <p>{{ data.about["content3_" + lang] }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STATS ====== -->
+<section class="stats">
+  <div class="wrap">
+    {% for s in data.stats %}
+    <div class="stat-item">
+      <h3>{{ s.number }}</h3>
+      <p>{{ s["label_" + lang] }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ====== FEATURES ====== -->
+<section class="section" style="background:#fafbfc">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>{% if lang == 'es' %}¿Por Qué Elegirnos?{% else %}Why Choose Us{% endif %}</h2>
+      <div class="line"></div>
+      <p>{% if lang == 'es' %}Años de experiencia en fabricación y estricto control de calidad{% else %}Years of manufacturing experience & strict quality control{% endif %}</p>
+    </div>
+    <div class="features-grid">
+      {% for f in data.features %}
+      <div class="feature-card">
+        <div class="icon">{{ f.icon }}</div>
+        <h4>{{ f["title_" + lang] }}</h4>
+        <p>{{ f["text_" + lang] }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ====== CERTIFICATES ====== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>{% if lang == 'es' %}Certificaciones{% else %}Certifications{% endif %}</h2>
+      <div class="line"></div>
+      <p>{% if lang == 'es' %}Certificaciones internacionales y garantía de calidad{% else %}International certifications & quality assurance{% endif %}</p>
+    </div>
+    <div class="cert-grid">
+      {% for c in data.certifications %}
+      <div class="cert-card">
+        {% if c.image %}
+        <img src="/static/uploads/{{ c.image }}" alt="{{ c['title_'+lang] }}" class="cert-img">
+        {% else %}
+        <div class="ph">{{ c.icon }}</div>
+        {% endif %}
+        <p>{{ c["title_" + lang] }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA ====== -->
+<section class="cta">
+  <div class="wrap">
+    <h3>{{ data.cta["title_" + lang] }}</h3>
+    <p>{{ data.cta["text_" + lang] }}</p>
+    <a href="/contact?lang={{ lang }}" class="btn">{{ data.cta["button_" + lang] }}</a>
+  </div>
+</section>
+
+{% endblock %}

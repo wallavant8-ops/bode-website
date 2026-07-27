@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ data.site.name }} - {% block title %}Home{% endblock %}</title>
+<link rel="stylesheet" href="/static/style.css">
+{% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<!-- ====== TOP BAR ====== -->
+<div class="top-bar">
+  <div class="wrap">
+    <div>
+      <span>📞 {{ data.site.phone }}</span>
+      <span>✉️ {{ data.site.email }}</span>
+    </div>
+    <div class="top-actions">
+      {% for l in data.languages %}
+      <a href="?lang={{ l.code }}" class="lang-link {% if lang == l.code %}active{% endif %}">{{ l.flag }} {{ l.name }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- ====== HEADER / NAV ====== -->
+<header class="header">
+  <div class="wrap">
+    <a href="/?lang={{ lang }}" class="logo">
+      <span class="logo-text">{{ data.site.logo_text }}</span>
+    </a>
+    <nav>
+      <ul>
+        {% for item in data.nav %}
+        <li>
+          <a href="{{ item.url }}?lang={{ lang }}" {% if request.path == item.url %}class="active"{% endif %}>
+            {{ item.label }}
+            {% if item.submenu %} ▾{% endif %}
+          </a>
+          {% if item.submenu %}
+          <ul class="submenu">
+            {% for sub in item.submenu %}
+            <li><a href="{{ sub.url }}?lang={{ lang }}">{{ sub.label }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+{% block content %}{% endblock %}
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="company-info">
+      <h4>{{ data.site.name }}</h4>
+      <p>Professional metal rack manufacturer since 2009</p>
+      <p>📍 {{ data.site.address }}</p>
+      <p>📞 {{ data.site.phone }}</p>
+      <p>✉️ {{ data.site.email }}</p>
+    </div>
+    <div>
+      <h4>{% if lang == 'es' %}Productos{% else %}Products{% endif %}</h4>
+      <ul>
+        {% for link in data.footer.product_links %}
+        <li><a href="/products?lang={{ lang }}">{{ link }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div>
+      <h4>{% if lang == 'es' %}Enlaces{% else %}Quick Links{% endif %}</h4>
+      <ul>
+        {% for link in data.footer.quick_links %}
+        <li><a href="/{{ link.lower().replace(' ', '-') }}?lang={{ lang }}">{{ link }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div>
+      <h4>{% if lang == 'es' %}Contáctenos{% else %}Contact Us{% endif %}</h4>
+      <form class="contact-form" method="post">
+        <input type="text" placeholder="{% if lang == 'es' %}Nombre{% else %}Name{% endif %}">
+        <input type="tel" placeholder="{% if lang == 'es' %}Teléfono{% else %}Phone{% endif %}">
+        <input type="email" placeholder="Email *" required>
+        <textarea placeholder="{% if lang == 'es' %}Mensaje{% else %}Message{% endif %} *" required></textarea>
+        <button type="submit" class="btn-submit">{% if lang == 'es' %}Enviar{% else %}Send{% endif %}</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 {{ data.site.name }}. {% if lang == 'es' %}Todos los derechos reservados.{% else %}All rights reserved.{% endif %}</p>
+  </div>
+</footer>
+
+<script>
+// Scroll to top
+const st = document.createElement('button');
+st.innerHTML = '↑';
+st.className = 'scroll-top';
+st.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+document.body.appendChild(st);
+window.onscroll = () => { st.style.display = window.scrollY > 500 ? 'block':'none'; };
+</script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

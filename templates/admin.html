@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel - Bode Hardware</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: "Segoe UI", system-ui, sans-serif; background:#f0f2f5; color:#333; display:flex; min-height:100vh; }
+.sidebar { width:240px; background:#1B3150; color:#fff; padding:20px 0; position:fixed; top:0; left:0; height:100vh; overflow-y:auto; }
+.sidebar h2 { padding:0 20px; font-size:18px; margin-bottom:30px; }
+.sidebar a { display:block; padding:12px 20px; color:#ccc; text-decoration:none; font-size:14px; transition:.2s; }
+.sidebar a:hover, .sidebar a.active { background:#2a5080; color:#fff; }
+.main { margin-left:240px; flex:1; padding:30px; }
+h1 { font-size:24px; margin-bottom:25px; }
+.card { background:#fff; border-radius:8px; padding:25px; margin-bottom:25px; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+.card h3 { font-size:16px; margin-bottom:15px; color:#1B3150; border-bottom:2px solid #f0f2f5; padding-bottom:8px; }
+.row { display:flex; gap:15px; flex-wrap:wrap; }
+.field { flex:1; min-width:200px; margin-bottom:12px; }
+.field label { display:block; font-size:12px; color:#888; margin-bottom:4px; font-weight:600; }
+.field input, .field textarea { width:100%; padding:8px 12px; border:1px solid #ddd; border-radius:4px; font-size:14px; }
+.field textarea { resize:vertical; min-height:60px; }
+.btn { display:inline-block; padding:10px 24px; background:#f7941d; color:#fff; border:none; border-radius:4px; cursor:pointer; font-size:14px; transition:.2s; }
+.btn:hover { background:#e67e00; }
+.btn-sm { padding:6px 14px; font-size:12px; }
+.btn-danger { background:#e74c3c; }
+.btn-danger:hover { background:#c0392b; }
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+.grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:15px; }
+.upload-zone { border:2px dashed #ddd; border-radius:8px; padding:30px; text-align:center; cursor:pointer; transition:.2s; }
+.upload-zone:hover { border-color:#f7941d; background:#fff8f0; }
+.upload-zone input { display:none; }
+.image-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:10px; margin-top:15px; }
+.image-grid .img-item { position:relative; border-radius:6px; overflow:hidden; border:2px solid transparent; cursor:pointer; }
+.image-grid .img-item.selected { border-color:#f7941d; }
+.image-grid img { width:100%; height:100px; object-fit:cover; display:block; }
+.image-grid .img-name { font-size:10px; padding:3px; text-align:center; background:#f5f5f5; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.image-grid .img-delete { position:absolute; top:3px; right:3px; background:rgba(231,76,60,.9); color:#fff; border:none; border-radius:3px; cursor:pointer; font-size:10px; padding:2px 5px; }
+.save-bar { position:sticky; bottom:0; background:#fff; padding:15px 0; border-top:2px solid #eee; margin-top:20px; text-align:center; }
+.alert { padding:12px 16px; border-radius:4px; margin-bottom:15px; }
+.alert-success { background:#d4edda; color:#155724; }
+.alert-info { background:#cce5ff; color:#004085; }
+textarea.code { font-family:monospace; font-size:12px; }
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h2>⚙️ Admin Panel</h2>
+  <a href="#site" class="active">Site Settings</a>
+  <a href="#banner">Banner</a>
+  <a href="#about">About Page</a>
+  <a href="#features">Features</a>
+  <a href="#stats">Stats</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#cta">CTA</a>
+  <a href="#images">Images</a>
+  <a href="/?lang=en" target="_blank">🌐 View Site →</a>
+</div>
+
+<div class="main">
+  <h1>🛠️ Content Manager</h1>
+
+  {% if request.args.get('saved') %}
+  <div class="alert alert-success">✅ Content saved successfully!</div>
+  {% endif %}
+
+  <form method="POST" action="/admin/save" id="main-form">
+
+    <!-- SITE SETTINGS -->
+    <div class="card" id="site">
+      <h3>🏭 Site Settings</h3>
+      <div class="grid-2">
+        <div class="field"><label>Site Name</label><input name="site.name" value="{{ data.site.name }}"></div>
+        <div class="field"><label>Tagline</label><input name="site.tagline" value="{{ data.site.tagline }}"></div>
+        <div class="field"><label>Email</label><input name="site.email" value="{{ data.site.email }}"></div>
+        <div class="field"><label>Phone</label><input name="site.phone" value="{{ data.site.phone }}"></div>
+        <div class="field"><label>Address</label><input name="site.address" value="{{ data.site.address }}"></div>
+        <div class="field"><label>Logo Text</label><input name="site.logo_text" value="{{ data.site.logo_text }}"></div>
+      </div>
+    </div>
+
+    <!-- BANNER -->
+    <div class="card" id="banner">
+      <h3>🎬 Banner</h3>
+      <div class="grid-2">
+        <div class="field"><label>Title (English)</label><input name="banner.title_en" value="{{ data.banner.title_en }}"></div>
+        <div class="field"><label>Title (Spanish)</label><input name="banner.title_es" value="{{ data.banner.title_es }}"></div>
+        <div class="field"><label>Subtitle (English)</label><input name="banner.subtitle_en" value="{{ data.banner.subtitle_en }}"></div>
+        <div class="field"><label>Subtitle (Spanish)</label><input name="banner.subtitle_es" value="{{ data.banner.subtitle_es }}"></div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="card" id="about">
+      <h3>📄 About Page</h3>
+      <div class="grid-2">
+        <div class="field"><label>Page Title (EN)</label><input name="about.title_en" value="{{ data.about.title_en }}"></div>
+        <div class="field"><label>Page Title (ES)</label><input name="about.title_es" value="{{ data.about.title_es }}"></div>
+        <div class="field"><label>Tagline (EN)</label><input name="about.tagline_en" value="{{ data.about.tagline_en }}"></div>
+        <div class="field"><label>Tagline (ES)</label><input name="about.tagline_es" value="{{ data.about.tagline_es }}"></div>
+        <div class="field"><label>Content Para 1 (EN)</label><textarea name="about.content_en" rows="3">{{ data.about.content_en }}</textarea></div>
+        <div class="field"><label>Content Para 1 (ES)</label><textarea name="about.content_es" rows="3">{{ data.about.content_es }}</textarea></div>
+        <div class="field"><label>Content Para 2 (EN)</label><textarea name="about.content2_en" rows="3">{{ data.about.content2_en }}</textarea></div>
+        <div class="field"><label>Content Para 2 (ES)</label><textarea name="about.content2_es" rows="3">{{ data.about.content2_es }}</textarea></div>
+        <div class="field"><label>Content Para 3 (EN)</label><textarea name="about.content3_en" rows="3">{{ data.about.content3_en }}</textarea></div>
+        <div class="field"><label>Content Para 3 (ES)</label><textarea name="about.content3_es" rows="3">{{ data.about.content3_es }}</textarea></div>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="card" id="features">
+      <h3>⭐ Features</h3>
+      {% for f in data.features %}
+      <div style="border:1px solid #eee;border-radius:6px;padding:15px;margin-bottom:15px;">
+        <strong>Feature {{ loop.index }}</strong>
+        <div class="row">
+          <div class="field"><label>Icon (emoji)</label><input name="feature.{{ loop.index0 }}.icon" value="{{ f.icon }}" style="width:80px;font-size:20px;"></div>
+          <div class="field"><label>Title (EN)</label><input name="feature.{{ loop.index0 }}.title_en" value="{{ f.title_en }}"></div>
+          <div class="field"><label>Title (ES)</label><input name="feature.{{ loop.index0 }}.title_es" value="{{ f.title_es }}"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Text (EN)</label><textarea name="feature.{{ loop.index0 }}.text_en" rows="2">{{ f.text_en }}</textarea></div>
+          <div class="field"><label>Text (ES)</label><textarea name="feature.{{ loop.index0 }}.text_es" rows="2">{{ f.text_es }}</textarea></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- STATS -->
+    <div class="card" id="stats">
+      <h3>📊 Stats</h3>
+      {% for s in data.stats %}
+      <div class="row" style="margin-bottom:10px;align-items:end;">
+        <div class="field"><label>Stat {{loop.index}}</label><input name="stat.{{ loop.index0 }}.number" value="{{ s.number }}" style="width:100px;font-size:20px;"></div>
+        <div class="field"><label>&nbsp;</label><input name="stat.{{ loop.index0 }}.label_en" value="{{ s.label_en }}"></div>
+        <div class="field"><label>&nbsp;</label><input name="stat.{{ loop.index0 }}.label_es" value="{{ s.label_es }}"></div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="card" id="certifications">
+      <h3>🏅 Certifications</h3>
+      {% for c in data.certifications %}
+      <div class="row" style="margin-bottom:10px;align-items:end;">
+        <div class="field"><label>Cert {{loop.index}} Icon</label><input name="cert.{{ loop.index0 }}.icon" value="{{ c.icon }}" style="width:80px;font-size:20px;"></div>
+        <div class="field"><label>&nbsp;</label><input name="cert.{{ loop.index0 }}.title_en" value="{{ c.title_en }}"></div>
+        <div class="field"><label>&nbsp;</label><input name="cert.{{ loop.index0 }}.title_es" value="{{ c.title_es }}"></div>
+        <div class="field">
+          <label>Image</label>
+          <input type="text" id="cert-img-{{ loop.index0 }}" value="{{ c.image }}" readonly style="font-size:11px;background:#f5f5f5;">
+          <button type="button" class="btn btn-sm" onclick="selectCertImage({{ loop.index0 }})" style="margin-top:3px;">Select from gallery</button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- CAROUSEL SLIDES -->
+    <div class="card" id="slides">
+      <h3>🎠 Carousel Slides</h3>
+      <p style="color:#888;font-size:13px;margin-bottom:15px;">Manage homepage slideshow. Upload images first in the <a href="#images" style="color:#f7941d;">Image Gallery ↓</a>, then paste the filename here.</p>
+      {% for slide in data.slides %}
+      <div style="border:1px solid #eee;border-radius:6px;padding:15px;margin-bottom:15px;">
+        <strong>Slide {{ loop.index }}</strong>
+        <div class="row">
+          <div class="field"><label>Image filename</label><input name="slide.{{ loop.index0 }}.image" value="{{ slide.image }}" placeholder="e.g. factory.jpg (leave empty for placeholder)"></div>
+          <div class="field"><label>Placeholder Icon</label><input name="slide.{{ loop.index0 }}.icon" value="{{ slide.icon }}" style="font-size:20px;width:80px;"></div>
+          <div class="field"><label>BG Color</label><input name="slide.{{ loop.index0 }}.bg" value="{{ slide.bg }}"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Title (EN)</label><input name="slide.{{ loop.index0 }}.title_en" value="{{ slide.title_en }}"></div>
+          <div class="field"><label>Title (ES)</label><input name="slide.{{ loop.index0 }}.title_es" value="{{ slide.title_es }}"></div>
+          <div class="field"><label>Title (PT)</label><input name="slide.{{ loop.index0 }}.title_pt" value="{{ slide.title_pt }}"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Subtitle (EN)</label><input name="slide.{{ loop.index0 }}.subtitle_en" value="{{ slide.subtitle_en }}"></div>
+          <div class="field"><label>Subtitle (ES)</label><input name="slide.{{ loop.index0 }}.subtitle_es" value="{{ slide.subtitle_es }}"></div>
+          <div class="field"><label>Subtitle (PT)</label><input name="slide.{{ loop.index0 }}.subtitle_pt" value="{{ slide.subtitle_pt }}"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Button Text (EN)</label><input name="slide.{{ loop.index0 }}.btn_en" value="{{ slide.get('btn_en', '') }}"></div>
+          <div class="field"><label>Button Text (ES)</label><input name="slide.{{ loop.index0 }}.btn_es" value="{{ slide.get('btn_es', '') }}"></div>
+          <div class="field"><label>Button Text (PT)</label><input name="slide.{{ loop.index0 }}.btn_pt" value="{{ slide.get('btn_pt', '') }}"></div>
+          <div class="field"><label>Link URL</label><input name="slide.{{ loop.index0 }}.link" value="{{ slide.get('link', '') }}"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- CTA -->
+    <div class="card" id="cta">
+      <h3>📢 Call to Action</h3>
+      <div class="grid-2">
+        <div class="field"><label>Title (EN)</label><input name="cta.title_en" value="{{ data.cta.title_en }}"></div>
+        <div class="field"><label>Title (ES)</label><input name="cta.title_es" value="{{ data.cta.title_es }}"></div>
+        <div class="field"><label>Text (EN)</label><input name="cta.text_en" value="{{ data.cta.text_en }}"></div>
+        <div class="field"><label>Text (ES)</label><input name="cta.text_es" value="{{ data.cta.text_es }}"></div>
+        <div class="field"><label>Button (EN)</label><input name="cta.button_en" value="{{ data.cta.button_en }}"></div>
+        <div class="field"><label>Button (ES)</label><input name="cta.button_es" value="{{ data.cta.button_es }}"></div>
+      </div>
+    </div>
+
+    <!-- IMAGE GALLERY -->
+    <div class="card" id="images">
+      <h3>🖼️ Image Gallery</h3>
+      <p style="color:#888;font-size:13px;margin-bottom:10px;">Click an image to select it for a certification, then click "Select from gallery" in the Certifications section above.</p>
+      <div class="upload-zone" onclick="document.getElementById('file-input').click()">
+        <div style="font-size:40px;">📤</div>
+        <p>Click or drag images here to upload</p>
+        <input type="file" id="file-input" accept="image/*" multiple onchange="uploadFiles()">
+      </div>
+      <div class="image-grid" id="image-grid">
+        {% for img in images %}
+        <div class="img-item" data-filename="{{ img }}" onclick="toggleImageSelect(this)" id="img-{{ loop.index0 }}">
+          <img src="/static/uploads/{{ img }}" alt="{{ img }}">
+          <div class="img-name">{{ img }}</div>
+          <button class="img-delete" onclick="event.stopPropagation();deleteImage('{{ img }}')">✕</button>
+        </div>
+        {% endfor %}
+      </div>
+      <p style="color:#888;font-size:12px;margin-top:8px;">Selected image: <strong id="selected-image">none</strong></p>
+    </div>
+
+    <div class="save-bar">
+      <button type="submit" class="btn" style="font-size:16px;padding:14px 50px;">💾 Save All Changes</button>
+    </div>
+
+  </form>
+</div>
+
+<script>
+let selectedImage = null;
+let activeCertIndex = null;
+
+function toggleImageSelect(el) {
+  document.querySelectorAll('.img-item').forEach(i => i.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedImage = el.dataset.filename;
+  document.getElementById('selected-image').textContent = selectedImage;
+  if (activeCertIndex !== null) {
+    document.getElementById('cert-img-' + activeCertIndex).value = selectedImage;
+    activeCertIndex = null;
+    document.getElementById('selected-image').textContent = 'applied to cert ' + (parseInt(document.getElementById('cert-img-0').name || '0') + 1);
+  }
+}
+
+function selectCertImage(index) {
+  activeCertIndex = index;
+  document.getElementById('selected-image').textContent = 'Select an image from gallery below...';
+  document.getElementById('images').scrollIntoView({behavior:'smooth'});
+}
+
+async function uploadFiles() {
+  const files = document.getElementById('file-input').files;
+  for (const file of files) {
+    const fd = new FormData();
+    fd.append('file', file);
+    await fetch('/admin/upload', {method:'POST', body:fd});
+  }
+  location.reload();
+}
+
+async function deleteImage(filename) {
+  if (confirm('Delete ' + filename + '?')) {
+    await fetch('/admin/delete-image/' + filename, {method:'POST'});
+    location.reload();
+  }
+}
+</script>
+</body>
+</html>

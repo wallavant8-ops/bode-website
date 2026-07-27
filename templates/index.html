@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- ====== CAROUSEL ====== -->
+<section class="carousel" id="mainCarousel">
+  <div class="carousel-track" id="carouselTrack">
+    {% if data.slides and data.slides|length > 0 %}
+    {% for slide in data.slides %}
+    <div class="carousel-slide {% if loop.first %}active{% endif %}">
+      {% if slide.image %}
+      <img src="/static/uploads/{{ slide.image }}" alt="{{ slide.title_en }}">
+      {% else %}
+      <div class="slide-placeholder" style="background:{{ slide.bg or '#1B3150' }}">
+        <span>{{ slide.icon or '🏭' }}</span>
+      </div>
+      {% endif %}
+      <div class="slide-overlay">
+        <div class="slide-content">
+          <h2>{{ slide["title_" + lang] }}</h2>
+          <p>{{ slide["subtitle_" + lang] }}</p>
+          {% if slide.link %}
+          <a href="{{ slide.link }}" class="slide-btn">{{ slide["btn_" + lang] or ('Learn More →' if lang == 'en' else 'Más Info →') }}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <!-- Default slides -->
+    <div class="carousel-slide active">
+      <div class="slide-placeholder" style="background:#1B3150"><span>🏭</span></div>
+      <div class="slide-overlay">
+        <div class="slide-content">
+          <h2>{{ data.banner["title_" + lang] }}</h2>
+          <p>{{ data.banner["subtitle_" + lang] }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <div class="slide-placeholder" style="background:#2a5080"><span>📦</span></div>
+      <div class="slide-overlay">
+        <div class="slide-content">
+          <h2>{% if lang == 'es' %}Productos de Calidad{% elif lang == 'pt' %}Produtos de Qualidade{% else %}Quality Products{% endif %}</h2>
+          <p>{% if lang == 'es' %}Más de 200 tipos de productos disponibles{% elif lang == 'pt' %}Mais de 200 tipos de produtos disponíveis{% else %}Over 200 product types available{% endif %}</p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <div class="slide-placeholder" style="background:#e67e00"><span>🌍</span></div>
+      <div class="slide-overlay">
+        <div class="slide-content">
+          <h2>{% if lang == 'es' %}Exportación Global{% elif lang == 'pt' %}Exportação Global{% else %}Global Export{% endif %}</h2>
+          <p>{% if lang == 'es' %}Presente en más de 30 países{% elif lang == 'pt' %}Presente em mais de 30 países{% else %}Serving 30+ countries worldwide{% endif %}</p>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <!-- Arrows -->
+  <button class="carousel-arrow carousel-prev" onclick="moveSlide(-1)">❮</button>
+  <button class="carousel-arrow carousel-next" onclick="moveSlide(1)">❯</button>
+  <!-- Dots -->
+  <div class="carousel-dots" id="carouselDots"></div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    {% for s in data.stats %}
+    <div class="stat-item"><h3>{{ s.number }}</h3><p>{{ s["label_" + lang] }}</p></div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>{% if lang == 'es' %}Nuestros Productos{% elif lang == 'pt' %}Nossos Produtos{% else %}Our Products{% endif %}</h2>
+      <div class="line"></div>
+    </div>
+    <div class="features-grid">
+      {% for f in data.features %}
+      <div class="feature-card">
+        <div class="icon">{{ f.icon }}</div>
+        <h4>{{ f["title_" + lang] }}</h4>
+        <p>{{ f["text_" + lang] }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h3>{{ data.cta["title_" + lang] }}</h3>
+    <p>{{ data.cta["text_" + lang] }}</p>
+    <a href="/contact?lang={{ lang }}" class="btn">{{ data.cta["button_" + lang] }}</a>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentSlide = 0;
+const track = document.getElementById('carouselTrack');
+const slides = track.querySelectorAll('.carousel-slide');
+const dotsContainer = document.getElementById('carouselDots');
+const total = slides.length;
+
+// Create dots
+slides.forEach((_, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'carousel-dot';
+  dot.onclick = () => goToSlide(i);
+  dotsContainer.appendChild(dot);
+});
+const dots = dotsContainer.querySelectorAll('.carousel-dot');
+updateDots();
+
+function goToSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (n + total) % total;
+  slides[currentSlide].classList.add('active');
+  track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+  updateDots();
+}
+function moveSlide(dir) { goToSlide(currentSlide + dir); }
+function updateDots() { dots.forEach((d,i) => d.classList.toggle('active', i === currentSlide)); }
+
+// Auto-play
+setInterval(() => moveSlide(1), 5000);
+</script>
+{% endblock %}
