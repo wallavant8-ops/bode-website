@@ -1,0 +1,14 @@
+{% extends "base.html" %}{% block title %}Contact{% endblock %}
+{% block content %}
+<section class="banner"><div class="banner-text"><h1>{{ data.banner["title_"+lang] }}</h1><p>{% if lang=='es'%}Contáctenos{%elif lang=='pt'%}Contate-nos{%elif lang=='zh'%}联系我们{%else%}Contact Us{%endif%}</p></div></section>
+<div class="breadcrumb"><div class="wrap"><a href="/">{% if lang=='zh'%}首页{%else%}Home{%endif%}</a> / {% if lang=='zh'%}联系我们{%else%}Contact{%endif%}</div></div>
+<section class="section"><div class="wrap" style="max-width:700px;">
+<div class="section-title"><h2>{% if lang=='zh'%}联系我们{%else%}Contact Us{%endif%}</h2><div class="line"></div></div>
+<div class="features-grid" style="grid-template-columns:1fr 1fr;">
+{% for f in [{'icon':'📞','t':{'en':'Phone','es':'Teléfono','pt':'Telefone','zh':'电话'},'v':data.site.phone},{'icon':'✉️','t':{'en':'Email','es':'Correo','pt':'E-mail','zh':'邮箱'},'v':data.site.email},{'icon':'📍','t':{'en':'Address','es':'Dirección','pt':'Endereço','zh':'地址'},'v':data.site.address},{'icon':'🌐','t':{'en':'Website','es':'Sitio Web','pt':'Site','zh':'网址'},'v':'www.bodehardware.com'}] %}
+<div class="feature-card"><div class="icon">{{f.icon}}</div><h4>{{f.t[lang]}}</h4><p style="word-break:break-all;">{{f.v}}</p></div>
+{% endfor %}
+</div>
+</div></section>
+{% include "_cta.html" %}
+{% endblock %}

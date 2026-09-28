@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block title %}Products{% endblock %}
+{% block content %}
+<section class="banner"><div class="banner-text"><h1>{{ data.banner["title_"+lang] }}</h1><p>{% if lang=='es' %}Nuestros Productos{% elif lang=='pt' %}Nossos Produtos{% elif lang=='zh' %}产品中心{% else %}Our Products{% endif %}</p></div></section>
+<div class="breadcrumb"><div class="wrap"><a href="/?lang={{lang}}">{% if lang=='es'%}Inicio{%elif lang=='pt'%}Início{%elif lang=='zh'%}首页{%else%}Home{%endif%}</a> / {% if lang=='es'%}Productos{%elif lang=='pt'%}Produtos{%elif lang=='zh'%}产品中心{%else%}Products{%endif%}</div></div>
+<section class="section"><div class="wrap">
+<div class="section-title"><h2>{% if lang=='es'%}Nuestros Productos{%elif lang=='pt'%}Nossos Produtos{%elif lang=='zh'%}产品中心{%else%}Our Products{%endif%}</h2><div class="line"></div></div>
+<div class="features-grid">
+{% for f in data.features %}
+<div class="feature-card"><div class="icon">{{f.icon}}</div><h4>{{f["title_"+lang]}}</h4><p>{{f["text_"+lang]}}</p></div>
+{% endfor %}
+</div></div></section>
+{% include "_cta.html" %}
+{% endblock %}

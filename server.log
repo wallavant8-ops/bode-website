@@ -1,0 +1,620 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.51.231:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 582-242-554
+127.0.0.1 - - [05/Aug/2026 12:39:34] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:39:43] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:39:44] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 12:40:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:40:54] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:41:02] "GET /?lang=es HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:41:02] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:41:04] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:41:04] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:42:22] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:43:13] "GET /admin HTTP/1.1" 200 -
+ * Detected change in 'C:\\Users\\jxzhuyx\\Desktop\\bode-website\\add_zh.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 582-242-554
+127.0.0.1 - - [05/Aug/2026 12:43:24] "GET /admin HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "C:\Users\jxzhuyx\AppData\Local\hermes\hermes-agent\venv\Lib\site-packages\flask\app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Local\hermes\hermes-agent\venv\Lib\site-packages\flask\app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Local\hermes\hermes-agent\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Local\hermes\hermes-agent\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Local\hermes\hermes-agent\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Local\hermes\hermes-agent\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\Desktop\bode-website\app.py", line 73, in admin
+    data = load_content()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\Desktop\bode-website\app.py", line 23, in load_content
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 259 column 15 (char 9267)
+127.0.0.1 - - [05/Aug/2026 12:43:25] "GET /admin?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:43:25] "GET /admin?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:43:25] "GET /admin?__debugger__=yes&cmd=resource&f=console.png&s=hpaxFx6hvH1EZsTjqsPF HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:45:33] "GET /admin HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "C:\Users\jxzhuyx\AppData\Local\hermes\hermes-agent\venv\Lib\site-packages\flask\app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Local\hermes\hermes-agent\venv\Lib\site-packages\flask\app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Local\hermes\hermes-agent\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Local\hermes\hermes-agent\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Local\hermes\hermes-agent\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Local\hermes\hermes-agent\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\Desktop\bode-website\app.py", line 73, in admin
+    data = load_content()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\Desktop\bode-website\app.py", line 23, in load_content
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jxzhuyx\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 259 column 15 (char 9267)
+127.0.0.1 - - [05/Aug/2026 12:45:33] "GET /admin?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:45:33] "GET /admin?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:45:33] "GET /admin?__debugger__=yes&cmd=resource&f=console.png&s=hpaxFx6hvH1EZsTjqsPF HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:45:58] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:46:09] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:46:14] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:46:19] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:46:19] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:46:24] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:46:47] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:46:47] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:46:51] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:46:52] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:46:53] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:46:53] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:46:56] "GET /?lang=es HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:46:56] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:47:13] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:47:14] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:47:29] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:47:29] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:47:50] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:47:50] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:47:50] "GET /?lang=pt HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:47:51] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:49:13] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:49:21] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:49:39] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:49:39] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:49:51] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:49:57] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:49:57] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 12:49:57] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:49:57] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 12:49:57] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:49:57] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:50:31] "POST /admin/upload HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:50:31] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:50:32] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:50:34] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 12:50:35] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:50:35] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:53:08] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 12:53:08] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:53:08] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:53:12] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:53:13] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:53:13] "GET /static/uploads/l轮播图1.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 12:53:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:53:21] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:53:22] "GET /static/uploads/l轮播图1.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 12:53:52] "GET /products/power?lang=en HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 12:54:05] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 12:54:05] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:54:05] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:56:48] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:56:48] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:57:08] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:57:09] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:57:22] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:57:22] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:57:36] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:57:36] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:57:41] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:58:05] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:58:05] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:58:20] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 12:58:20] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:58:20] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:58:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:58:24] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:58:24] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:58:49] "POST /admin/upload HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:58:50] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:58:50] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:58:50] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:58:57] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 12:58:57] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:58:57] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:58:57] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:58:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:58:59] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:58:59] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:03] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:03] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:17] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:17] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:19] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:20] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:22] "GET /about?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:23] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:23] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:24] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:24] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:33] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:33] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:34] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:34] "GET /about?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:34] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:35] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:35] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:35] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:43] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:43] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:43] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:45] "GET /about?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:45] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:45] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:46] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:46] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:49] "GET /about?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:50] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:51] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:52] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:52] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:56] "GET /about?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:56] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:56] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 12:59:57] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:57] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 12:59:57] "GET /products?lang=en HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 13:00:13] "GET /products?lang=en HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 13:00:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:00:18] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:00:18] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:00:26] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 13:00:26] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:00:26] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:00:26] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:00:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:00:29] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:00:29] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:00:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:00:32] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:00:33] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:00:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:00:35] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:00:35] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:01:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:01:02] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:01:02] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:02:35] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 13:02:35] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:02:35] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:02:35] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:02:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:02:37] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:02:37] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:03:08] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:03:08] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:03:14] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:03:15] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:03:32] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:03:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:03:33] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:03:33] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:03:48] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:03:48] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:06] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:06] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:06] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:10] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:10] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:04:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:21] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:21] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:04:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:29] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:29] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:33] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:47] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 13:04:47] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:47] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:04:47] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:04:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:04:50] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:04:50] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:04:50] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:05:33] "POST /admin/upload HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:05:33] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:05:33] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:05:34] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:05:34] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:05:41] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 13:05:41] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:05:42] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:05:42] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:05:42] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:05:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:05:44] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:05:45] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:05:45] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:05:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:05:50] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:05:51] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:05:51] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:05:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:05:54] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:05:54] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:05:54] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:05:57] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:05:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:06:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:06:04] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:06:04] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:06:04] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:06:04] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 13:06:04] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:06:05] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:06:05] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:06:05] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:06:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:06:07] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:06:07] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:06:07] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:06:07] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:06:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:06:31] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 13:06:31] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:06:31] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:06:31] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:06:31] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:06:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:06:33] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:06:33] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:06:33] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:06:33] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:08:56] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 13:08:56] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:08:57] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:08:57] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:08:57] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:09:50] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 13:09:51] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:09:51] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:09:51] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:09:51] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:10:07] "GET /products?lang=en HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 13:35:27] "GET /?lang=es HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:35:27] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:35:27] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:35:27] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:35:27] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:35:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:35:32] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:35:32] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:35:32] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:35:32] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:37:51] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:37:51] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:37:52] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:37:52] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:37:52] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:37:52] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 13:37:52] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:37:52] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:37:52] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 13:37:52] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:14:51] "GET /products?lang=en HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 14:15:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:15:34] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:15:34] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:15:34] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:15:34] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:15:36] "GET /products?lang=en HTTP/1.1" 404 -
+127.0.0.1 - - [05/Aug/2026 14:16:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:10] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:10] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:10] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:10] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 200 -
+ * Detected change in 'C:\\Users\\jxzhuyx\\Desktop\\bode-website\\app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 582-242-554
+127.0.0.1 - - [05/Aug/2026 14:16:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:21] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:22] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:22] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:22] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:28] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:28] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:28] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:28] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:38] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:38] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:38] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:38] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:46] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:46] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:46] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:16:46] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:13] "GET /products HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:22] "GET /products HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:22] "GET /products/power HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:22] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:22] "GET /service HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:23] "GET /faq HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:41] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:41] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:41] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:41] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:47] "GET /products HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:47] "GET /products/power HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:47] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:47] "GET /service HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:47] "GET /faq HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:47] "GET /factory HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:47] "GET /news HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:47] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:47] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:47] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:53] "GET /products?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:53] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:17:58] "GET /products/home?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:17:58] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:18:00] "GET /products/power?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:18:00] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:18:10] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:18:11] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:18:11] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:18:11] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:18:11] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:20:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:20:39] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:20:39] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:20:39] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:20:39] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:20:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:20:58] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:20:58] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:20:58] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:20:58] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:23:07] "GET /products/power?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:23:07] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:23:09] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:23:09] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:23:09] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:23:09] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:23:09] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:23:17] "GET /about?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:23:17] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:23:19] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:23:19] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:23:19] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:23:19] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:23:19] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:24:53] "GET /products?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:24:53] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:24:55] "GET /service?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:24:55] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:24:57] "GET /news?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:24:57] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:24:57] "GET /news?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:24:57] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:24:59] "GET /contact?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:24:59] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:00] "GET /news?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:25:00] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:10] "GET /service?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:25:10] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:27] "GET /products/power?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:25:28] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:33] "GET /faq?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:25:33] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:35] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:25:35] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:35] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:35] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:35] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:38] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:25:38] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:39] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:39] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:39] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:39] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:25:39] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:39] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:39] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:39] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:41] "GET /faq?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:25:41] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:25:52] "GET /products/power?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:25:52] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:26:19] "GET /products/power?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:26:19] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:26:20] "GET /service?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:26:20] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:26:21] "GET /products?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:26:21] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:26:22] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:26:22] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:26:22] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:26:22] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:26:22] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:29:41] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 14:29:41] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:29:42] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:29:42] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:29:42] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:30:12] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:30:12] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:30:13] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:30:13] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:30:13] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:30:26] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:30:26] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:30:27] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:30:27] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:30:27] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:30:33] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:30:33] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:30:33] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:30:33] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:30:33] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:36:46] "POST /admin/save HTTP/1.1" 302 -
+127.0.0.1 - - [05/Aug/2026 14:36:46] "GET /admin?saved=1 HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:36:46] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:36:46] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:36:46] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:49:50] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:49:50] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:49:50] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:49:50] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:49:50] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:02] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:53:02] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:02] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:02] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:02] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:05] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:53:05] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:06] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:06] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:06] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:10] "GET /products?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:53:10] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:15] "GET /about?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:53:15] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:20] "GET /about?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:53:20] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:26] "GET /products/power?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:53:27] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:28] "GET /products?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:53:29] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:37] "GET /products/home?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:53:37] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 14:53:48] "GET /products/power?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 14:53:48] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:18:49] "GET /products?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:18:49] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:18:52] "GET /about?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:18:52] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:18:54] "GET /products?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:18:54] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:18:55] "GET /products/power?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:18:55] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:18:57] "GET /products/home?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:18:57] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:18:59] "GET /products/garage?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:18:59] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:19:00] "GET /service?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:19:01] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:19:01] "GET /news?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:19:01] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:19:03] "GET /news?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:19:03] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:19:03] "GET /contact?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:19:03] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:19:04] "GET /service?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:19:04] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:19:05] "GET /products?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:19:05] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:19:05] "GET /about?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:19:06] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:19:06] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:19:07] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:19:07] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:19:07] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:19:07] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:40:25] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:40:25] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:40:25] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:40:25] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:40:25] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:42:11] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:42:11] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:42:11] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:42:11] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:42:11] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:42:13] "GET /?lang=zh HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:42:13] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:42:13] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:42:13] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:42:13] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:42:13] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:42:14] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:42:14] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:42:14] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:42:14] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:48:09] "GET /?lang=en HTTP/1.1" 200 -
+127.0.0.1 - - [05/Aug/2026 15:48:09] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:48:09] "GET /static/uploads/l1_20260805125031.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:48:09] "GET /static/uploads/2_20260805125849.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [05/Aug/2026 15:48:09] "GET /static/uploads/3_20260805130533.jpg HTTP/1.1" 304 -

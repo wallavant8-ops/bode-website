@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}{{ {'service':'Service','news':'News','faq':'FAQ','factory':'Factory'}.get(request.path.strip('/'),'Page') }}{% endblock %}
+{% block content %}
+<section class="banner"><div class="banner-text"><h1>{% if lang=='zh'%}敬请期待{%elif lang=='es'%}Próximamente{%elif lang=='pt'%}Em Breve{%else%}Coming Soon{%endif%}</h1></div></section>
+<section class="section"><div class="wrap" style="text-align:center;padding:80px;"><div style="font-size:60px;">{% if lang=='zh'%}👷 内容更新中{%else%}👷 Under Construction{%endif%}</div><p style="color:#888;margin-top:20px;">{% if lang=='zh'%}此页面正在建设中，请稍后再来。{%else%}This page is under construction. Please check back later.{%endif%}</p></div></section>
+{% include "_cta.html" %}{% endblock %}

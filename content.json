@@ -2,10 +2,10 @@
   "site": {
     "name": "Bode Hardware Technology",
     "tagline": "Professional Metal Rack Manufacturer",
-    "email": "sales@bodehardware.com",
+    "email": "sales@hymetalworks.com",
     "phone": "+86-17758287092",
-    "address": "Jinhua, Zhejiang, China",
-    "logo_text": "🏭 Bode Hardware"
+    "address": "jiaxing, Zhejiang, China",
+    "logo_text": "🏭 H$Y Metalworks"
   },
   "nav": [
     {
@@ -60,52 +60,63 @@
   "banner": {
     "title_en": "Let's Work Together!",
     "title_es": "¡Trabajemos Juntos!",
-    "subtitle_en": "Professional Metal Rack & Hardware Manufacturer",
-    "subtitle_es": "Fabricante Profesional de Estanterías Metálicas",
     "title_pt": "Vamos Trabalhar Juntos!",
-    "subtitle_pt": "Fabricante Profissional de Prateleiras Metálicas"
+    "title_zh": "让我们一起合作！",
+    "subtitle_en": "> Professional manufacturer of garage hooks and ceiling storage rack hardware",
+    "subtitle_es": "Fabricante profesional de ganchos para garaje y estanterías de techo en metal",
+    "subtitle_pt": "Fabricante Profissional de Prateleiras Metálicas",
+    "subtitle_zh": "专业金属货架和五金制品制造商"
   },
   "about": {
     "title_en": "About Us",
     "title_es": "Sobre Nosotros",
+    "title_pt": "Sobre Nós",
+    "title_zh": "关于我们",
     "tagline_en": "Giving You More Floor Space",
     "tagline_es": "Dándole Más Espacio en el Suelo",
-    "content_en": "Bode specializes in the production and design of multifunctional metal racks. We are committed to manufacturing high-quality products to help you efficiently organize your warehouse space.",
-    "content_es": "Bode se especializa en la producción y diseño de estanterías metálicas multifuncionales. Estamos comprometidos con la fabricación de productos de alta calidad para ayudarle a organizar eficientemente su espacio de almacén.",
-    "content2_en": "We offer quality products at reasonable prices, helping create cleaner and more sustainable work environments. Our products are exported to over 30 countries across Europe, Americas, and Southeast Asia.",
-    "content2_es": "Ofrecemos productos de calidad a precios razonables, ayudando a crear entornos de trabajo más limpios y sostenibles. Nuestros productos se exportan a más de 30 países.",
-    "content3_en": "Since our founding, Bode has adhered to the philosophy of 'Quality First, Customer Foremost', continuously innovating product design and manufacturing processes.",
-    "content3_es": "Desde nuestra fundación, Bode se ha adherido a la filosofía de 'Calidad Primero, Cliente Ante Todo', innovando continuamente en el diseño de productos.",
-    "title_pt": "Sobre Nós",
     "tagline_pt": "Dando Mais Espaço ao Seu Chão",
-    "content_pt": "A Bode é especializada na produção e design de prateleiras metálicas multifuncionais. Estamos comprometidos em fabricar produtos de alta qualidade para ajudá-lo a organizar eficientemente seu espaço de armazém.",
-    "content2_pt": "Oferecemos produtos de qualidade a preços razoáveis, ajudando a criar ambientes de trabalho mais limpos e sustentáveis. Nossos produtos são exportados para mais de 30 países.",
-    "content3_pt": "Desde a nossa fundação, a Bode mantém a filosofia de 'Qualidade em Primeiro Lugar, Cliente Acima de Tudo', inovando continuamente no design e nos processos de fabricação."
+    "tagline_zh": "为您提供更多的空间",
+    "content_en": "H$Y metalwork specializes in the production and design of multifunctional metal racks. We are committed to manufacturing high-quality products to help you efficiently organize your warehouse space.",
+    "content_es": "H$Y metalwork se especializa en la producción y diseño de estanterías metálicas multifuncionales.",
+    "content_pt": "A Bode é especializada na produção e design de prateleiras metálicas multifuncionais.",
+    "content_zh": "博德专业从事多功能金属货架的生产与设计。我们致力于制造高质量的产品，帮助您高效地组织仓库空间。",
+    "content2_en": "We offer quality products at reasonable prices, helping create cleaner and more sustainable work environments.",
+    "content2_es": "Ofrecemos productos de calidad a precios razonables.",
+    "content2_pt": "Oferecemos produtos de qualidade a preços razoáveis.",
+    "content2_zh": "我们以合理的价格提供优质产品，助力打造更清洁、更可持续的工作环境。",
+    "content3_en": "Since our founding, Bode has adhered to the philosophy of Quality First, Customer Foremost.",
+    "content3_es": "Bode se ha adherido a la filosofía de Calidad Primero, Cliente Ante Todo.",
+    "content3_pt": "A Bode mantém a filosofia de Qualidade em Primeiro Lugar.",
+    "content3_zh": "自成立以来，博德始终坚持品质为本、客户至上的经营理念。"
   },
   "stats": [
     {
-      "number": "15+",
+      "number": "20+",
       "label_en": "Years Experience",
       "label_es": "Años de Experiencia",
-      "label_pt": "Anos de Experiência"
+      "label_pt": "Anos de Experiência",
+      "label_zh": "年行业经验"
     },
     {
-      "number": "200+",
+      "number": "100+",
       "label_en": "Product Types",
-      "label_es": "Tipos de Productos",
-      "label_pt": "Tipos de Produtos"
+      "label_es": "Años de Experiencia",
+      "label_pt": "Tipos de Produtos",
+      "label_zh": "产品品类"
     },
     {
       "number": "30+",
       "label_en": "Export Countries",
       "label_es": "Países de Exportación",
-      "label_pt": "Países de Exportação"
+      "label_pt": "Países de Exportação",
+      "label_zh": "出口国家"
     },
     {
       "number": "5000+",
       "label_en": "Happy Clients",
       "label_es": "Clientes Satisfechos",
-      "label_pt": "Clientes Satisfeitos"
+      "label_pt": "Clientes Satisfeitos",
+      "label_zh": "合作客户"
     }
   ],
   "features": [
@@ -113,55 +124,67 @@
       "icon": "🏭",
       "title_en": "Own Factory",
       "title_es": "Fábrica Propia",
+      "title_pt": "Fábrica Própria",
+      "title_zh": "自有工厂",
       "text_en": "Modern production base with automated stamping, welding and coating lines.",
       "text_es": "Base de producción moderna con líneas automatizadas.",
-      "title_pt": "Fábrica Própria",
-      "text_pt": "Base de produção moderna com linhas automatizadas de estampagem, soldagem e pintura."
+      "text_pt": "Base de produção moderna com linhas automatizadas.",
+      "text_zh": "拥有现代化生产基地，配备自动化冲压、焊接和喷涂生产线。"
     },
     {
       "icon": "✅",
       "title_en": "Quality Assured",
-      "title_es": "Calidad Garantizada",
-      "text_en": "ISO 9001 certified quality management system with multi-stage inspection.",
-      "text_es": "Sistema de gestión de calidad certificado ISO 9001.",
+      "title_es": "Fábrica Propia",
       "title_pt": "Qualidade Garantida",
-      "text_pt": "Sistema de gestão de qualidade certificado ISO 9001 com inspeção em múltiplas etapas."
+      "title_zh": "品质保证",
+      "text_en": "ISO 9001 certified quality management system.",
+      "text_es": "Base de producción moderna con líneas automatizadas.",
+      "text_pt": "Sistema de gestão de qualidade certificado ISO 9001.",
+      "text_zh": "严格遵循ISO 9001质量管理体系，每批产品均经过多重检测。"
     },
     {
       "icon": "🎨",
       "title_en": "Custom Design",
       "title_es": "Diseño Personalizado",
-      "text_en": "Professional team supporting OEM/ODM with rapid prototyping.",
-      "text_es": "Equipo profesional que soporta OEM/ODM con prototipado rápido.",
       "title_pt": "Design Personalizado",
-      "text_pt": "Equipe profissional oferecendo suporte OEM/ODM com prototipagem rápida."
+      "title_zh": "定制设计",
+      "text_en": "Professional team supporting OEM/ODM with rapid prototyping.",
+      "text_es": "Equipo profesional que soporta OEM/ODM.",
+      "text_pt": "Equipe profissional oferecendo suporte OEM/ODM.",
+      "text_zh": "专业设计团队支持OEM/ODM定制，快速打样，满足个性化需求。"
     },
     {
       "icon": "🚚",
       "title_en": "Fast Delivery",
       "title_es": "Entrega Rápida",
-      "text_en": "Efficient production scheduling and logistics for on-time delivery.",
-      "text_es": "Programación eficiente de producción y logística.",
       "title_pt": "Entrega Rápida",
-      "text_pt": "Programação eficiente de produção e logística para entrega pontual."
+      "title_zh": "快速交付",
+      "text_en": "Efficient production scheduling and logistics.",
+      "text_es": "Programación eficiente de producción y logística.",
+      "text_pt": "Programação eficiente de produção e logística.",
+      "text_zh": "高效的生产排期和物流管理，确保订单准时送达。"
     },
     {
       "icon": "🌍",
       "title_en": "Global Service",
       "title_es": "Servicio Global",
-      "text_en": "Products in 30+ countries with CE, RoHS international certifications.",
-      "text_es": "Productos en más de 30 países con certificaciones CE, RoHS.",
       "title_pt": "Serviço Global",
-      "text_pt": "Produtos em mais de 30 países com certificações internacionais CE e RoHS."
+      "title_zh": "全球服务",
+      "text_en": "Products in 30+ countries with CE, RoHS certifications.",
+      "text_es": "Productos en más de 30 países con certificaciones CE, RoHS.",
+      "text_pt": "Produtos em mais de 30 países com certificações CE, RoHS.",
+      "text_zh": "产品覆盖30+国家和地区，获得CE、RoHS等国际认证。"
     },
     {
       "icon": "💡",
       "title_en": "Innovation",
       "title_es": "Innovación",
-      "text_en": "Multiple new products launched annually with continuous improvement.",
-      "text_es": "Múltiples productos nuevos lanzados anualmente.",
       "title_pt": "Inovação Contínua",
-      "text_pt": "Múltiplos novos produtos lançados anualmente com melhoria contínua."
+      "title_zh": "持续创新",
+      "text_en": "Multiple new products launched annually.",
+      "text_es": "Múltiples productos nuevos lanzados anualmente.",
+      "text_pt": "Múltiplos novos produtos lançados anualmente.",
+      "text_zh": "每年推出多款新产品，持续改进设计和工艺。"
     }
   ],
   "certifications": [
@@ -169,41 +192,48 @@
       "icon": "📜",
       "title_en": "ISO 9001 QMS",
       "title_es": "ISO 9001 SGC",
-      "image": "",
-      "title_pt": "ISO 9001 SGQ"
+      "title_pt": "ISO 9001 SGQ",
+      "title_zh": "ISO 9001 质量管理体系",
+      "image": ""
     },
     {
       "icon": "🏅",
       "title_en": "CE Certification",
-      "title_es": "Certificación CE",
-      "image": "",
-      "title_pt": "Certificação CE"
+      "title_es": "ISO 9001 SGC",
+      "title_pt": "Certificação CE",
+      "title_zh": "CE 欧盟安全认证",
+      "image": ""
     },
     {
       "icon": "🔬",
       "title_en": "RoHS Compliant",
       "title_es": "Cumplimiento RoHS",
-      "image": "",
-      "title_pt": "Conformidade RoHS"
+      "title_pt": "Conformidade RoHS",
+      "title_zh": "RoHS 环保认证",
+      "image": ""
     },
     {
       "icon": "🏆",
       "title_en": "High-Tech Enterprise",
       "title_es": "Empresa de Alta Tecnología",
-      "image": "",
-      "title_pt": "Empresa de Alta Tecnologia"
+      "title_pt": "Empresa de Alta Tecnologia",
+      "title_zh": "高新技术企业证书",
+      "image": ""
     }
   ],
   "cta": {
     "title_en": "Ready to Work With Us?",
     "title_es": "¿Listo para Trabajar con Nosotros?",
+    "title_pt": "Pronto para Trabalhar Conosco?",
+    "title_zh": "准备与我们合作了吗？",
     "text_en": "Contact us now for product quotes and samples",
     "text_es": "Contáctenos ahora para cotizaciones y muestras",
+    "text_pt": "Entre em contato agora para cotações e amostras",
+    "text_zh": "立即联系我们，获取产品报价和样品",
     "button_en": "Contact Us →",
     "button_es": "Contáctenos →",
-    "title_pt": "Pronto para Trabalhar Conosco?",
-    "text_pt": "Entre em contato agora para cotações e amostras",
-    "button_pt": "Contate-nos →"
+    "button_pt": "Contate-nos →",
+    "button_zh": "联系我们 →"
   },
   "footer": {
     "product_links": [
@@ -224,19 +254,24 @@
   },
   "languages": [
     {
+      "code": "zh",
+      "name": "中文",
+      "flag": "CN"
+    },
+    {
       "code": "en",
       "name": "English",
-      "flag": "🇺🇸"
+      "flag": "US"
     },
     {
       "code": "es",
       "name": "Español",
-      "flag": "🇪🇸"
+      "flag": "ES"
     },
     {
       "code": "pt",
       "name": "Português",
-      "flag": "🇧🇷"
+      "flag": "BR"
     }
   ],
   "slides": [
@@ -244,46 +279,55 @@
       "title_en": "Let's Work Together!",
       "title_es": "¡Trabajemos Juntos!",
       "title_pt": "Vamos Trabalhar Juntos!",
+      "title_zh": "让我们一起合作！",
       "subtitle_en": "Professional Metal Rack & Hardware Manufacturer",
       "subtitle_es": "Fabricante Profesional de Estanterías Metálicas",
       "subtitle_pt": "Fabricante Profissional de Prateleiras Metálicas",
-      "image": "",
+      "subtitle_zh": "专业金属货架和五金制品制造商",
+      "image": "l1_20260805125031.jpg",
       "icon": "🏭",
       "bg": "#1B3150",
       "link": "/about",
       "btn_en": "Learn More →",
       "btn_es": "Más Información →",
-      "btn_pt": "Saiba Mais →"
+      "btn_pt": "Saiba Mais →",
+      "btn_zh": "了解更多 →"
     },
     {
       "title_en": "Quality Products",
-      "title_es": "Productos de Calidad",
+      "title_es": "¡Trabajemos Juntos!",
       "title_pt": "Produtos de Qualidade",
+      "title_zh": "优质产品",
       "subtitle_en": "Over 200 product types for your warehouse needs",
-      "subtitle_es": "Más de 200 tipos de productos para su almacén",
+      "subtitle_es": "Fabricante Profesional de Estanterías Metálicas",
       "subtitle_pt": "Mais de 200 tipos de produtos para seu armazém",
-      "image": "",
+      "subtitle_zh": "超过200种产品类型供您选择",
+      "image": "2_20260805125849.jpg",
       "icon": "📦",
       "bg": "#2a5080",
       "link": "/products",
       "btn_en": "View Products →",
-      "btn_es": "Ver Productos →",
-      "btn_pt": "Ver Produtos →"
+      "btn_es": "Más Información →",
+      "btn_pt": "Ver Produtos →",
+      "btn_zh": "查看产品 →"
     },
     {
       "title_en": "Global Export",
       "title_es": "Exportación Global",
-      "title_pt": "Exportação Global",
+      "title_pt": "Vamos Trabalhar Juntos!",
+      "title_zh": "全球出口",
       "subtitle_en": "Serving 30+ countries across Europe, Americas & Southeast Asia",
-      "subtitle_es": "Presente en más de 30 países de Europa, América y Sudeste Asiático",
-      "subtitle_pt": "Atendendo mais de 30 países na Europa, Américas e Sudeste Asiático",
-      "image": "",
+      "subtitle_es": "Presente en más de 30 países",
+      "subtitle_pt": "Fabricante Profissional de Prateleiras Metálicas",
+      "subtitle_zh": "服务于欧洲、美洲和东南亚30多个国家",
+      "image": "3_20260805130533.jpg",
       "icon": "🌍",
       "bg": "#e67e00",
       "link": "/contact",
       "btn_en": "Contact Us →",
       "btn_es": "Contáctenos →",
-      "btn_pt": "Contate-nos →"
+      "btn_pt": "Saiba Mais →",
+      "btn_zh": "联系我们 →"
     }
   ]
 }

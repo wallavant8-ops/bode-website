@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel - Bode Hardware</title>
+<title>后台管理 - Bode Hardware</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: "Segoe UI", system-ui, sans-serif; background:#f0f2f5; color:#333; display:flex; min-height:100vh; }
+body { font-family: "Microsoft YaHei","Segoe UI",sans-serif; background:#f0f2f5; color:#333; display:flex; min-height:100vh; }
 .sidebar { width:240px; background:#1B3150; color:#fff; padding:20px 0; position:fixed; top:0; left:0; height:100vh; overflow-y:auto; }
-.sidebar h2 { padding:0 20px; font-size:18px; margin-bottom:30px; }
+.sidebar h2 { padding:0 20px; font-size:18px; margin-bottom:10px; }
+.lang-switch { margin:0 20px 15px; display:flex; gap:6px; }
+.lang-switch button { flex:1; padding:6px 0; border:1px solid rgba(255,255,255,.3); background:transparent; color:#ccc; border-radius:3px; cursor:pointer; font-size:12px; }
+.lang-switch button.active { background:#f7941d; color:#fff; border-color:#f7941d; }
 .sidebar a { display:block; padding:12px 20px; color:#ccc; text-decoration:none; font-size:14px; transition:.2s; }
 .sidebar a:hover, .sidebar a.active { background:#2a5080; color:#fff; }
 .main { margin-left:240px; flex:1; padding:30px; }
@@ -23,10 +26,7 @@ h1 { font-size:24px; margin-bottom:25px; }
 .btn { display:inline-block; padding:10px 24px; background:#f7941d; color:#fff; border:none; border-radius:4px; cursor:pointer; font-size:14px; transition:.2s; }
 .btn:hover { background:#e67e00; }
 .btn-sm { padding:6px 14px; font-size:12px; }
-.btn-danger { background:#e74c3c; }
-.btn-danger:hover { background:#c0392b; }
 .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
-.grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:15px; }
 .upload-zone { border:2px dashed #ddd; border-radius:8px; padding:30px; text-align:center; cursor:pointer; transition:.2s; }
 .upload-zone:hover { border-color:#f7941d; background:#fff8f0; }
 .upload-zone input { display:none; }
@@ -39,89 +39,99 @@ h1 { font-size:24px; margin-bottom:25px; }
 .save-bar { position:sticky; bottom:0; background:#fff; padding:15px 0; border-top:2px solid #eee; margin-top:20px; text-align:center; }
 .alert { padding:12px 16px; border-radius:4px; margin-bottom:15px; }
 .alert-success { background:#d4edda; color:#155724; }
-.alert-info { background:#cce5ff; color:#004085; }
-textarea.code { font-family:monospace; font-size:12px; }
 </style>
 </head>
 <body>
 
 <div class="sidebar">
-  <h2>⚙️ Admin Panel</h2>
-  <a href="#site" class="active">Site Settings</a>
-  <a href="#banner">Banner</a>
-  <a href="#about">About Page</a>
-  <a href="#features">Features</a>
-  <a href="#stats">Stats</a>
-  <a href="#certifications">Certifications</a>
-  <a href="#cta">CTA</a>
-  <a href="#images">Images</a>
-  <a href="/?lang=en" target="_blank">🌐 View Site →</a>
+  <h2>⚙️ <span data-zh="后台管理" data-en="Admin Panel">后台管理</span></h2>
+  <div class="lang-switch">
+    <button class="active" onclick="switchAdminLang('zh',this)">中文</button>
+    <button onclick="switchAdminLang('en',this)">English</button>
+  </div>
+  <a href="#site" class="active" data-zh="网站设置" data-en="Site Settings">网站设置</a>
+  <a href="#banner" data-zh="横幅" data-en="Banner">横幅</a>
+  <a href="#about" data-zh="关于页面" data-en="About Page">关于页面</a>
+  <a href="#features" data-zh="产品特性" data-en="Features">产品特性</a>
+  <a href="#stats" data-zh="数据统计" data-en="Stats">数据统计</a>
+  <a href="#slides" data-zh="轮播图" data-en="Carousel">轮播图</a>
+  <a href="#certifications" data-zh="资质认证" data-en="Certifications">资质认证</a>
+  <a href="#cta" data-zh="行动号召" data-en="CTA">行动号召</a>
+  <a href="#images" data-zh="图片库" data-en="Images">图片库</a>
+  <a href="/?lang=zh" target="_blank" data-zh="🌐 查看网站 →" data-en="🌐 View Site →">🌐 查看网站 →</a>
 </div>
 
 <div class="main">
-  <h1>🛠️ Content Manager</h1>
+  <h1 data-zh="🛠️ 内容管理" data-en="🛠️ Content Manager">🛠️ 内容管理</h1>
 
   {% if request.args.get('saved') %}
-  <div class="alert alert-success">✅ Content saved successfully!</div>
+  <div class="alert alert-success"><span data-zh="✅ 内容已保存！" data-en="✅ Content saved successfully!">✅ 内容已保存！</span></div>
   {% endif %}
 
   <form method="POST" action="/admin/save" id="main-form">
 
     <!-- SITE SETTINGS -->
     <div class="card" id="site">
-      <h3>🏭 Site Settings</h3>
+      <h3 data-zh="🏭 网站设置" data-en="🏭 Site Settings">🏭 网站设置</h3>
       <div class="grid-2">
-        <div class="field"><label>Site Name</label><input name="site.name" value="{{ data.site.name }}"></div>
-        <div class="field"><label>Tagline</label><input name="site.tagline" value="{{ data.site.tagline }}"></div>
-        <div class="field"><label>Email</label><input name="site.email" value="{{ data.site.email }}"></div>
-        <div class="field"><label>Phone</label><input name="site.phone" value="{{ data.site.phone }}"></div>
-        <div class="field"><label>Address</label><input name="site.address" value="{{ data.site.address }}"></div>
-        <div class="field"><label>Logo Text</label><input name="site.logo_text" value="{{ data.site.logo_text }}"></div>
+        <div class="field"><label data-zh="网站名称" data-en="Site Name">网站名称</label><input name="site.name" value="{{ data.site.name }}"></div>
+        <div class="field"><label data-zh="标语" data-en="Tagline">标语</label><input name="site.tagline" value="{{ data.site.tagline }}"></div>
+        <div class="field"><label data-zh="邮箱" data-en="Email">邮箱</label><input name="site.email" value="{{ data.site.email }}"></div>
+        <div class="field"><label data-zh="电话" data-en="Phone">电话</label><input name="site.phone" value="{{ data.site.phone }}"></div>
+        <div class="field"><label data-zh="地址" data-en="Address">地址</label><input name="site.address" value="{{ data.site.address }}"></div>
+        <div class="field"><label data-zh="Logo文字" data-en="Logo Text">Logo文字</label><input name="site.logo_text" value="{{ data.site.logo_text }}"></div>
       </div>
     </div>
 
     <!-- BANNER -->
     <div class="card" id="banner">
-      <h3>🎬 Banner</h3>
+      <h3 data-zh="🎬 横幅" data-en="🎬 Banner">🎬 横幅</h3>
       <div class="grid-2">
-        <div class="field"><label>Title (English)</label><input name="banner.title_en" value="{{ data.banner.title_en }}"></div>
-        <div class="field"><label>Title (Spanish)</label><input name="banner.title_es" value="{{ data.banner.title_es }}"></div>
-        <div class="field"><label>Subtitle (English)</label><input name="banner.subtitle_en" value="{{ data.banner.subtitle_en }}"></div>
-        <div class="field"><label>Subtitle (Spanish)</label><input name="banner.subtitle_es" value="{{ data.banner.subtitle_es }}"></div>
+        <div class="field"><label data-zh="标题 (英文)" data-en="Title (English)">标题 (英文)</label><input name="banner.title_en" value="{{ data.banner.title_en }}"></div>
+        <div class="field"><label data-zh="标题 (西班牙语)" data-en="Title (Spanish)">标题 (西班牙语)</label><input name="banner.title_es" value="{{ data.banner.title_es }}"></div>
+        <div class="field"><label data-zh="标题 (葡萄牙语)" data-en="Title (Portuguese)">标题 (葡萄牙语)</label><input name="banner.title_pt" value="{{ data.banner.title_pt }}"></div>
+        <div class="field"><label data-zh="标题 (中文)" data-en="Title (Chinese)">标题 (中文)</label><input name="banner.title_zh" value="{{ data.banner.title_zh }}"></div>
+        <div class="field"><label data-zh="副标题 (英文)" data-en="Subtitle (EN)">副标题 (英文)</label><input name="banner.subtitle_en" value="{{ data.banner.subtitle_en }}"></div>
+        <div class="field"><label data-zh="副标题 (西班牙语)" data-en="Subtitle (ES)">副标题 (西班牙语)</label><input name="banner.subtitle_es" value="{{ data.banner.subtitle_es }}"></div>
+        <div class="field"><label data-zh="副标题 (葡萄牙语)" data-en="Subtitle (PT)">副标题 (葡萄牙语)</label><input name="banner.subtitle_pt" value="{{ data.banner.subtitle_pt }}"></div>
+        <div class="field"><label data-zh="副标题 (中文)" data-en="Subtitle (ZH)">副标题 (中文)</label><input name="banner.subtitle_zh" value="{{ data.banner.subtitle_zh }}"></div>
       </div>
     </div>
 
     <!-- ABOUT -->
     <div class="card" id="about">
-      <h3>📄 About Page</h3>
-      <div class="grid-2">
-        <div class="field"><label>Page Title (EN)</label><input name="about.title_en" value="{{ data.about.title_en }}"></div>
-        <div class="field"><label>Page Title (ES)</label><input name="about.title_es" value="{{ data.about.title_es }}"></div>
-        <div class="field"><label>Tagline (EN)</label><input name="about.tagline_en" value="{{ data.about.tagline_en }}"></div>
-        <div class="field"><label>Tagline (ES)</label><input name="about.tagline_es" value="{{ data.about.tagline_es }}"></div>
-        <div class="field"><label>Content Para 1 (EN)</label><textarea name="about.content_en" rows="3">{{ data.about.content_en }}</textarea></div>
-        <div class="field"><label>Content Para 1 (ES)</label><textarea name="about.content_es" rows="3">{{ data.about.content_es }}</textarea></div>
-        <div class="field"><label>Content Para 2 (EN)</label><textarea name="about.content2_en" rows="3">{{ data.about.content2_en }}</textarea></div>
-        <div class="field"><label>Content Para 2 (ES)</label><textarea name="about.content2_es" rows="3">{{ data.about.content2_es }}</textarea></div>
-        <div class="field"><label>Content Para 3 (EN)</label><textarea name="about.content3_en" rows="3">{{ data.about.content3_en }}</textarea></div>
-        <div class="field"><label>Content Para 3 (ES)</label><textarea name="about.content3_es" rows="3">{{ data.about.content3_es }}</textarea></div>
+      <h3 data-zh="📄 关于页面" data-en="📄 About Page">📄 关于页面</h3>
+      {% set lang_labels = [('en','英文'),('es','西班牙语'),('pt','葡萄牙语'),('zh','中文')] %}
+      {% for lc, ln in lang_labels %}
+      <div style="border:1px solid #eee;border-radius:6px;padding:12px;margin-bottom:10px;">
+        <strong>{{ ln }} ({{ lc }})</strong>
+        <div class="row">
+          <div class="field"><label>页面标题</label><input name="about.title_{{ lc }}" value="{{ data.about['title_'+lc] }}"></div>
+          <div class="field"><label>副标题</label><input name="about.tagline_{{ lc }}" value="{{ data.about['tagline_'+lc] }}"></div>
+        </div>
+        <div class="field"><label>正文第一段</label><textarea name="about.content_{{ lc }}" rows="2">{{ data.about['content_'+lc] }}</textarea></div>
+        <div class="field"><label>正文第二段</label><textarea name="about.content2_{{ lc }}" rows="2">{{ data.about['content2_'+lc] }}</textarea></div>
+        <div class="field"><label>正文第三段</label><textarea name="about.content3_{{ lc }}" rows="2">{{ data.about['content3_'+lc] }}</textarea></div>
       </div>
+      {% endfor %}
     </div>
 
     <!-- FEATURES -->
     <div class="card" id="features">
-      <h3>⭐ Features</h3>
+      <h3 data-zh="⭐ 产品特性" data-en="⭐ Features">⭐ 产品特性</h3>
       {% for f in data.features %}
-      <div style="border:1px solid #eee;border-radius:6px;padding:15px;margin-bottom:15px;">
-        <strong>Feature {{ loop.index }}</strong>
+      <div style="border:1px solid #eee;border-radius:6px;padding:12px;margin-bottom:10px;">
+        <strong data-zh="特性 {{loop.index}}" data-en="Feature {{loop.index}}">特性 {{loop.index}}</strong>
         <div class="row">
-          <div class="field"><label>Icon (emoji)</label><input name="feature.{{ loop.index0 }}.icon" value="{{ f.icon }}" style="width:80px;font-size:20px;"></div>
-          <div class="field"><label>Title (EN)</label><input name="feature.{{ loop.index0 }}.title_en" value="{{ f.title_en }}"></div>
-          <div class="field"><label>Title (ES)</label><input name="feature.{{ loop.index0 }}.title_es" value="{{ f.title_es }}"></div>
+          <div class="field"><label data-zh="图标(emoji)" data-en="Icon (emoji)">图标</label><input name="feature.{{ loop.index0 }}.icon" value="{{ f.icon }}" style="width:80px;font-size:20px;"></div>
+          {% for lc, ln in [('en','EN'),('es','ES'),('pt','PT'),('zh','ZH')] %}
+          <div class="field"><label>{{ ln }}</label><input name="feature.{{ loop.index0 }}.title_{{ lc }}" value="{{ f.get('title_'+lc,'') }}"></div>
+          {% endfor %}
         </div>
         <div class="row">
-          <div class="field"><label>Text (EN)</label><textarea name="feature.{{ loop.index0 }}.text_en" rows="2">{{ f.text_en }}</textarea></div>
-          <div class="field"><label>Text (ES)</label><textarea name="feature.{{ loop.index0 }}.text_es" rows="2">{{ f.text_es }}</textarea></div>
+          {% for lc, ln in [('en','EN'),('es','ES'),('pt','PT'),('zh','ZH')] %}
+          <div class="field"><label data-zh="描述{{ln}}" data-en="Text {{ln}}">描述 {{ln}}</label><textarea name="feature.{{ loop.index0 }}.text_{{ lc }}" rows="2">{{ f.get('text_'+lc,'') }}</textarea></div>
+          {% endfor %}
         </div>
       </div>
       {% endfor %}
@@ -129,60 +139,62 @@ textarea.code { font-family:monospace; font-size:12px; }
 
     <!-- STATS -->
     <div class="card" id="stats">
-      <h3>📊 Stats</h3>
+      <h3 data-zh="📊 数据统计" data-en="📊 Stats">📊 数据统计</h3>
       {% for s in data.stats %}
-      <div class="row" style="margin-bottom:10px;align-items:end;">
-        <div class="field"><label>Stat {{loop.index}}</label><input name="stat.{{ loop.index0 }}.number" value="{{ s.number }}" style="width:100px;font-size:20px;"></div>
-        <div class="field"><label>&nbsp;</label><input name="stat.{{ loop.index0 }}.label_en" value="{{ s.label_en }}"></div>
-        <div class="field"><label>&nbsp;</label><input name="stat.{{ loop.index0 }}.label_es" value="{{ s.label_es }}"></div>
+      <div class="row" style="margin-bottom:8px;align-items:end;">
+        <div class="field"><label data-zh="数字" data-en="Number">数字</label><input name="stat.{{ loop.index0 }}.number" value="{{ s.number }}" style="width:100px;font-size:20px;"></div>
+        {% for lc in ['en','es','pt','zh'] %}
+        <div class="field"><label>{{ lc.upper() }}</label><input name="stat.{{ loop.index0 }}.label_{{ lc }}" value="{{ s.get('label_'+lc,'') }}"></div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- SLIDES -->
+    <div class="card" id="slides">
+      <h3 data-zh="🎠 轮播图" data-en="🎠 Carousel Slides">🎠 轮播图</h3>
+      <p style="color:#888;font-size:13px;margin-bottom:15px;" data-zh="先在上传到下方图片库，然后把文件名填到这里。留空则显示默认图标。" data-en="Upload images below first, then paste the filename here. Leave blank for placeholder.">先在下方图片库上传，然后把文件名填到这里</p>
+      {% for slide in data.slides %}
+      <div style="border:1px solid #eee;border-radius:6px;padding:15px;margin-bottom:15px;">
+        <strong data-zh="幻灯片 {{loop.index}}" data-en="Slide {{loop.index}}">幻灯片 {{loop.index}}</strong>
+        <div class="row">
+          <div class="field">
+            <label data-zh="图片" data-en="Image">图片</label>
+            <input type="text" id="slide-img-{{ loop.index0 }}" name="slide.{{ loop.index0 }}.image" value="{{ slide.image }}" readonly style="font-size:11px;background:#f5f5f5;">
+            <button type="button" class="btn btn-sm" onclick="selectSlideImage({{ loop.index0 }})" style="margin-top:3px;" data-zh="从图库选择" data-en="Select from gallery">从图库选择</button>
+          </div>
+          <div class="field"><label data-zh="默认图标" data-en="Placeholder Icon">默认图标</label><input name="slide.{{ loop.index0 }}.icon" value="{{ slide.icon }}" style="font-size:20px;width:80px;"></div>
+          <div class="field"><label data-zh="背景色" data-en="BG Color">背景色</label><input name="slide.{{ loop.index0 }}.bg" value="{{ slide.bg }}"></div>
+        </div>
+        {% for lc in ['en','es','pt','zh'] %}
+        <div class="row">
+          <div class="field"><label data-zh="标题({{lc.upper()}})" data-en="Title ({{lc.upper()}})">标题 ({{lc.upper()}})</label><input name="slide.{{ loop.index0 }}.title_{{ lc }}" value="{{ slide.get('title_'+lc,'') }}"></div>
+          <div class="field"><label data-zh="副标题({{lc.upper()}})" data-en="Subtitle ({{lc.upper()}})">副标题 ({{lc.upper()}})</label><input name="slide.{{ loop.index0 }}.subtitle_{{ lc }}" value="{{ slide.get('subtitle_'+lc,'') }}"></div>
+        </div>
+        {% endfor %}
+        <div class="row">
+          {% for lc in ['en','es','pt','zh'] %}
+          <div class="field"><label data-zh="按钮文字({{lc.upper()}})" data-en="Btn ({{lc.upper()}})">按钮 ({{lc.upper()}})</label><input name="slide.{{ loop.index0 }}.btn_{{ lc }}" value="{{ slide.get('btn_'+lc,'') }}"></div>
+          {% endfor %}
+          <div class="field"><label data-zh="链接" data-en="Link">链接</label><input name="slide.{{ loop.index0 }}.link" value="{{ slide.get('link','') }}"></div>
+        </div>
       </div>
       {% endfor %}
     </div>
 
     <!-- CERTIFICATIONS -->
     <div class="card" id="certifications">
-      <h3>🏅 Certifications</h3>
+      <h3 data-zh="🏅 资质认证" data-en="🏅 Certifications">🏅 资质认证</h3>
       {% for c in data.certifications %}
       <div class="row" style="margin-bottom:10px;align-items:end;">
-        <div class="field"><label>Cert {{loop.index}} Icon</label><input name="cert.{{ loop.index0 }}.icon" value="{{ c.icon }}" style="width:80px;font-size:20px;"></div>
-        <div class="field"><label>&nbsp;</label><input name="cert.{{ loop.index0 }}.title_en" value="{{ c.title_en }}"></div>
-        <div class="field"><label>&nbsp;</label><input name="cert.{{ loop.index0 }}.title_es" value="{{ c.title_es }}"></div>
+        <div class="field"><label data-zh="图标" data-en="Icon">图标</label><input name="cert.{{ loop.index0 }}.icon" value="{{ c.icon }}" style="width:80px;font-size:20px;"></div>
+        {% for lc in ['en','es','pt','zh'] %}
+        <div class="field"><label>{{ lc.upper() }}</label><input name="cert.{{ loop.index0 }}.title_{{ lc }}" value="{{ c.get('title_'+lc,'') }}"></div>
+        {% endfor %}
         <div class="field">
-          <label>Image</label>
+          <label data-zh="图片" data-en="Image">图片</label>
           <input type="text" id="cert-img-{{ loop.index0 }}" value="{{ c.image }}" readonly style="font-size:11px;background:#f5f5f5;">
-          <button type="button" class="btn btn-sm" onclick="selectCertImage({{ loop.index0 }})" style="margin-top:3px;">Select from gallery</button>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-
-    <!-- CAROUSEL SLIDES -->
-    <div class="card" id="slides">
-      <h3>🎠 Carousel Slides</h3>
-      <p style="color:#888;font-size:13px;margin-bottom:15px;">Manage homepage slideshow. Upload images first in the <a href="#images" style="color:#f7941d;">Image Gallery ↓</a>, then paste the filename here.</p>
-      {% for slide in data.slides %}
-      <div style="border:1px solid #eee;border-radius:6px;padding:15px;margin-bottom:15px;">
-        <strong>Slide {{ loop.index }}</strong>
-        <div class="row">
-          <div class="field"><label>Image filename</label><input name="slide.{{ loop.index0 }}.image" value="{{ slide.image }}" placeholder="e.g. factory.jpg (leave empty for placeholder)"></div>
-          <div class="field"><label>Placeholder Icon</label><input name="slide.{{ loop.index0 }}.icon" value="{{ slide.icon }}" style="font-size:20px;width:80px;"></div>
-          <div class="field"><label>BG Color</label><input name="slide.{{ loop.index0 }}.bg" value="{{ slide.bg }}"></div>
-        </div>
-        <div class="row">
-          <div class="field"><label>Title (EN)</label><input name="slide.{{ loop.index0 }}.title_en" value="{{ slide.title_en }}"></div>
-          <div class="field"><label>Title (ES)</label><input name="slide.{{ loop.index0 }}.title_es" value="{{ slide.title_es }}"></div>
-          <div class="field"><label>Title (PT)</label><input name="slide.{{ loop.index0 }}.title_pt" value="{{ slide.title_pt }}"></div>
-        </div>
-        <div class="row">
-          <div class="field"><label>Subtitle (EN)</label><input name="slide.{{ loop.index0 }}.subtitle_en" value="{{ slide.subtitle_en }}"></div>
-          <div class="field"><label>Subtitle (ES)</label><input name="slide.{{ loop.index0 }}.subtitle_es" value="{{ slide.subtitle_es }}"></div>
-          <div class="field"><label>Subtitle (PT)</label><input name="slide.{{ loop.index0 }}.subtitle_pt" value="{{ slide.subtitle_pt }}"></div>
-        </div>
-        <div class="row">
-          <div class="field"><label>Button Text (EN)</label><input name="slide.{{ loop.index0 }}.btn_en" value="{{ slide.get('btn_en', '') }}"></div>
-          <div class="field"><label>Button Text (ES)</label><input name="slide.{{ loop.index0 }}.btn_es" value="{{ slide.get('btn_es', '') }}"></div>
-          <div class="field"><label>Button Text (PT)</label><input name="slide.{{ loop.index0 }}.btn_pt" value="{{ slide.get('btn_pt', '') }}"></div>
-          <div class="field"><label>Link URL</label><input name="slide.{{ loop.index0 }}.link" value="{{ slide.get('link', '') }}"></div>
+          <button type="button" class="btn btn-sm" onclick="selectCertImage({{ loop.index0 }})" style="margin-top:3px;" data-zh="从图库选择" data-en="Select from gallery">从图库选择</button>
         </div>
       </div>
       {% endfor %}
@@ -190,24 +202,23 @@ textarea.code { font-family:monospace; font-size:12px; }
 
     <!-- CTA -->
     <div class="card" id="cta">
-      <h3>📢 Call to Action</h3>
-      <div class="grid-2">
-        <div class="field"><label>Title (EN)</label><input name="cta.title_en" value="{{ data.cta.title_en }}"></div>
-        <div class="field"><label>Title (ES)</label><input name="cta.title_es" value="{{ data.cta.title_es }}"></div>
-        <div class="field"><label>Text (EN)</label><input name="cta.text_en" value="{{ data.cta.text_en }}"></div>
-        <div class="field"><label>Text (ES)</label><input name="cta.text_es" value="{{ data.cta.text_es }}"></div>
-        <div class="field"><label>Button (EN)</label><input name="cta.button_en" value="{{ data.cta.button_en }}"></div>
-        <div class="field"><label>Button (ES)</label><input name="cta.button_es" value="{{ data.cta.button_es }}"></div>
+      <h3 data-zh="📢 行动号召" data-en="📢 Call to Action">📢 行动号召</h3>
+      {% for lc in ['en','es','pt','zh'] %}
+      <div class="row" style="margin-bottom:10px;">
+        <div class="field"><label data-zh="标题({{lc.upper()}})" data-en="Title ({{lc.upper()}})">标题 ({{lc.upper()}})</label><input name="cta.title_{{ lc }}" value="{{ data.cta.get('title_'+lc,'') }}"></div>
+        <div class="field"><label data-zh="正文({{lc.upper()}})" data-en="Text ({{lc.upper()}})">正文 ({{lc.upper()}})</label><input name="cta.text_{{ lc }}" value="{{ data.cta.get('text_'+lc,'') }}"></div>
+        <div class="field"><label data-zh="按钮({{lc.upper()}})" data-en="Button ({{lc.upper()}})">按钮 ({{lc.upper()}})</label><input name="cta.button_{{ lc }}" value="{{ data.cta.get('button_'+lc,'') }}"></div>
       </div>
+      {% endfor %}
     </div>
 
     <!-- IMAGE GALLERY -->
     <div class="card" id="images">
-      <h3>🖼️ Image Gallery</h3>
-      <p style="color:#888;font-size:13px;margin-bottom:10px;">Click an image to select it for a certification, then click "Select from gallery" in the Certifications section above.</p>
+      <h3 data-zh="🖼️ 图片库" data-en="🖼️ Image Gallery">🖼️ 图片库</h3>
+      <p style="color:#888;font-size:13px;margin-bottom:10px;" data-zh="点击图片选中后，在认证/轮播图区域点「从图库选择」即可赋值。" data-en="Click an image to select it, then click 'Select from gallery' in Certifications/Slides section.">点击图片选中后，在认证/轮播图区域点「从图库选择」即可赋值。</p>
       <div class="upload-zone" onclick="document.getElementById('file-input').click()">
         <div style="font-size:40px;">📤</div>
-        <p>Click or drag images here to upload</p>
+        <p data-zh="点击或拖拽上传图片" data-en="Click or drag images here to upload">点击或拖拽上传图片</p>
         <input type="file" id="file-input" accept="image/*" multiple onchange="uploadFiles()">
       </div>
       <div class="image-grid" id="image-grid">
@@ -215,39 +226,69 @@ textarea.code { font-family:monospace; font-size:12px; }
         <div class="img-item" data-filename="{{ img }}" onclick="toggleImageSelect(this)" id="img-{{ loop.index0 }}">
           <img src="/static/uploads/{{ img }}" alt="{{ img }}">
           <div class="img-name">{{ img }}</div>
-          <button class="img-delete" onclick="event.stopPropagation();deleteImage('{{ img }}')">✕</button>
+          <button class="img-delete" onclick="event.stopPropagation();deleteImage('{{ img }}')" data-zh="删" data-en="X">删</button>
         </div>
         {% endfor %}
       </div>
-      <p style="color:#888;font-size:12px;margin-top:8px;">Selected image: <strong id="selected-image">none</strong></p>
+      <p style="color:#888;font-size:12px;margin-top:8px;"><span data-zh="已选图片：" data-en="Selected: ">已选图片：</span><strong id="selected-image" data-zh="无" data-en="none">无</strong></p>
     </div>
 
     <div class="save-bar">
-      <button type="submit" class="btn" style="font-size:16px;padding:14px 50px;">💾 Save All Changes</button>
+      <button type="submit" class="btn" style="font-size:16px;padding:14px 50px;">💾 <span data-zh="保存所有修改" data-en="Save All Changes">保存所有修改</span></button>
     </div>
 
   </form>
 </div>
 
 <script>
+// Admin language switcher
+let adminLang = 'zh';
+function switchAdminLang(lang, btn) {
+  adminLang = lang;
+  document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('[data-zh][data-en]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang) || el.textContent;
+  });
+  localStorage.setItem('adminLang', lang);
+}
+// Load saved preference
+(function(){
+  const saved = localStorage.getItem('adminLang') || 'zh';
+  const btn = document.querySelector('.lang-switch button[onclick*=\"'+saved+'\"]');
+  if(btn) switchAdminLang(saved, btn);
+})();
+
 let selectedImage = null;
 let activeCertIndex = null;
+let activeSlideIndex = null;
 
 function toggleImageSelect(el) {
   document.querySelectorAll('.img-item').forEach(i => i.classList.remove('selected'));
   el.classList.add('selected');
   selectedImage = el.dataset.filename;
-  document.getElementById('selected-image').textContent = selectedImage;
+  document.getElementById('selected-image').textContent = selectedImage || (adminLang==='zh'?'无':'none');
   if (activeCertIndex !== null) {
     document.getElementById('cert-img-' + activeCertIndex).value = selectedImage;
     activeCertIndex = null;
-    document.getElementById('selected-image').textContent = 'applied to cert ' + (parseInt(document.getElementById('cert-img-0').name || '0') + 1);
+  }
+  if (activeSlideIndex !== null) {
+    document.getElementById('slide-img-' + activeSlideIndex).value = selectedImage;
+    activeSlideIndex = null;
   }
 }
 
 function selectCertImage(index) {
   activeCertIndex = index;
-  document.getElementById('selected-image').textContent = 'Select an image from gallery below...';
+  activeSlideIndex = null;
+  document.getElementById('selected-image').textContent = adminLang==='zh'?'请在下方图片库选择...':'Select an image from gallery below...';
+  document.getElementById('images').scrollIntoView({behavior:'smooth'});
+}
+
+function selectSlideImage(index) {
+  activeSlideIndex = index;
+  activeCertIndex = null;
+  document.getElementById('selected-image').textContent = adminLang==='zh'?'请在下方图片库选择...':'Select an image from gallery below...';
   document.getElementById('images').scrollIntoView({behavior:'smooth'});
 }
 
@@ -262,7 +303,7 @@ async function uploadFiles() {
 }
 
 async function deleteImage(filename) {
-  if (confirm('Delete ' + filename + '?')) {
+  if (confirm((adminLang==='zh'?'确认删除 ':'Delete ') + filename + '?')) {
     await fetch('/admin/delete-image/' + filename, {method:'POST'});
     location.reload();
   }

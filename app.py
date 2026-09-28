@@ -66,6 +66,25 @@ def contact():
     return render_template("contact.html", data=data, lang=lang)
 
 
+@app.route("/products")
+@app.route("/products/<sub>")
+def products(sub=None):
+    data = load_content()
+    lang = request.args.get("lang", request.cookies.get("lang", "en"))
+    return render_template("products.html", data=data, lang=lang, sub=sub)
+
+
+@app.route("/service")
+@app.route("/news")
+@app.route("/faq")
+@app.route("/factory")
+def static_pages():
+    data = load_content()
+    lang = request.args.get("lang", request.cookies.get("lang", "en"))
+    path = request.path.strip("/")
+    return render_template(f"{path}.html", data=data, lang=lang)
+
+
 # ========== ADMIN PANEL ==========
 
 @app.route("/admin")
